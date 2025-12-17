@@ -1,0 +1,25 @@
+{
+    "name": "character-ai-chatbot",
+    "version": "2.0.0",
+    "description": "Character.AI chatbot with web-based setup interface",
+    "type": "module",
+    "main": "server.js",
+    "scripts": {
+        "setup": "node setup-server.js",
+        "start": "node setup-server.js",
+        "dev": "node setup-server.js",
+        "vercel-build": "echo Build complete"
+    },
+    "keywords": [
+        "character-ai",
+        "chatbot",
+        "ai",
+        "setup"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "cainode": "latest",
+        "express": "^4.18.2"
+    }
+}
