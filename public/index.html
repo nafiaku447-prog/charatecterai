@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character.AI Token Generator</title>
+    <meta name="description"
+        content="Generate token Character.AI secara otomatis dengan interface yang mudah digunakan">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="background-gradient"></div>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <div class="icon-robot">🤖</div>
+                <h1>Character.AI Token Generator</h1>
+                <p class="subtitle">Generate token Character.AI secara otomatis</p>
+            </div>
+
+            <div class="card-body">
+                <!-- Step Indicator -->
+                <div class="steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <div class="step-label">Email</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="2">
+                        <div class="step-circle">2</div>
+                        <div class="step-label">Verify</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="3">
+                        <div class="step-circle">3</div>
+                        <div class="step-label">Token</div>
+                    </div>
+                </div>
+
+                <!-- Form Container -->
+                <div class="form-container">
+                    <!-- Step 1: Email Input -->
+                    <div class="form-step active" id="step1">
+                        <div class="form-group">
+                            <label for="email">📧 Email Character.AI</label>
+                            <input type="email" id="email" placeholder="contoh@email.com" required autocomplete="email">
+                            <small class="help-text">Masukkan email yang terdaftar di Character.AI</small>
+                        </div>
+                        <button class="btn btn-primary" onclick="sendVerification()">
+                            Kirim Verifikasi
+                        </button>
+                        <div class="info-box">
+                            <strong>ℹ️ Belum punya akun?</strong>
+                            <p>Daftar gratis di <a href="https://character.ai" target="_blank">character.ai</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Waiting for Verification -->
+                    <div class="form-step" id="step2">
+                        <div class="verification-container">
+                            <div class="spinner"></div>
+                            <h3>⏰ Menunggu Verifikasi</h3>
+                            <p class="verification-text">Email verifikasi telah dikirim ke:</p>
+                            <p class="email-display" id="emailDisplay"></p>
+                            <div class="verification-steps">
+                                <p>📧 Cek inbox Anda</p>
+                                <p>👆 Klik tombol verifikasi di email</p>
+                                <p>⏱️ Menunggu maksimal 2 menit</p>
+                            </div>
+                            <div class="timer" id="timer">120s</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Token Display -->
+                    <div class="form-step" id="step3">
+                        <div class="success-animation">
+                            <div class="checkmark">✓</div>
+                        </div>
+                        <h3 class="success-title">Token Berhasil Didapat!</h3>
+
+                        <div class="token-container">
+                            <label>🔑 Your Character.AI Token:</label>
+                            <div class="token-display" id="tokenDisplay">
+                                <!-- Token will be displayed here -->
+                            </div>
+                            <button class="btn-copy" onclick="copyToken()">
+                                📋 Copy Token
+                            </button>
+                        </div>
+
+                        <div class="info-box" style="margin-top: 24px;">
+                            <strong>✅ Token berhasil di-generate!</strong>
+                            <p>Gunakan token ini untuk konfigurasi chatbot Anda</p>
+                        </div>
+
+                        <button class="btn btn-primary" onclick="startOver()" style="margin-top: 20px;">
+                            🔄 Generate Token Baru
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Status Messages -->
+                <div class="status-message" id="statusMessage"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Made with ❤️ for Character.AI</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
